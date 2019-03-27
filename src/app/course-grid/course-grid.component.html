@@ -1,3 +1,11 @@
-<p>
-  course-grid works!
-</p>
+<h2>My Courses</h2>
+<ul class="courses">
+  <li *ngFor="let course of courses"
+      [class.selected]="course === selectedCourse"
+      (click)="onSelect(course)">
+    <a [routerLink]="['/course/', course.id, 'module']">
+      <span class="badge">{{course.id}}</span> {{course.courseName}}
+    </a>
+  </li>
+</ul>
+

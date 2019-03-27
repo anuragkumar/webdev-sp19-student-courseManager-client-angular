@@ -9,6 +9,8 @@ import { ModuleListComponent } from './module-list/module-list.component';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
+import {routing} from './app.routing';
+import {ModuleServiceClient} from './services/module.service.client';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,13 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    routing
   ],
-  providers: [CourseServiceClient],
+  providers: [
+    CourseServiceClient,
+    ModuleServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

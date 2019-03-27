@@ -18,6 +18,7 @@ export class CourseGridComponent implements OnInit {
   constructor(private courseService: CourseServiceClient) { }
 
   courses: Course[] = [];
+  selectedCourse: Course;
 
   ngOnInit() {
     this.courseService.findAllCourses()
@@ -25,6 +26,10 @@ export class CourseGridComponent implements OnInit {
         this.courses = data;
         console.log(this.courses);
       });
+  }
+
+  onSelect(course: Course): void {
+    this.selectedCourse = course;
   }
 
 }

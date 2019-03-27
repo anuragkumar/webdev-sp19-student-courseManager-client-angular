@@ -1,3 +1,14 @@
-<p>
-  module-list works!
-</p>
+<h2>Modules</h2>
+<ul class="modules">
+  <li *ngFor="let module of modules"
+      [class.selected]="module === selectedModule"
+      (click)="onSelect(module)">
+      <span class="badge">{{module.id}}</span> {{module.moduleName}}
+  </li>
+</ul>
+
+<div *ngIf="selectedModule">
+
+  <h2>{{selectedModule.moduleName | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedModule.id}}</div>
+</div>
