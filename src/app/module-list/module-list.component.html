@@ -2,15 +2,87 @@
 <ul class="modules">
   <li *ngFor="let module of modules"
       [class.selected]="module === selectedModule"
-      (click)="onSelect(module)">
-    <a [routerLink]="['/course/', courseId, 'module', module.id, 'lesson']">
+      (click)="onSelectModule(module)">
       <span class="badge">{{module.id}}</span> {{module.moduleName}}
-    </a>
   </li>
 </ul>
 
 <div *ngIf="selectedModule">
-
   <h2>{{selectedModule.moduleName | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedModule.id}}</div>
+  <ul class="lessons">
+    <li *ngFor="let lesson of lessons"
+        [class.selected]="lesson === selectedLesson"
+        (click)="onSelectLesson(lesson)">
+      {{lesson.chapterName}}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedLesson">
+  <h2>{{selectedLesson.chapterName | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedLesson.id}}</div>
+  <ul class="topics">
+    <li *ngFor="let topic of topics"
+        [class.selected]="topic === selectedTopic"
+        (click)="onSelectTopic(topic)">
+      {{topic.topicName}}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedTopic">
+  <h2>{{selectedTopic.topicName | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedTopic.id}}</div>
+  <ul class="widgets">
+    <li *ngFor="let widget of widgets">
+      <div *ngIf="widget.widgetName === 'Heading'">
+        <h1 *ngIf="widget.headingSize === 1">
+          {{widget.headingText}}
+        </h1>
+        <h1 *ngIf="widget.headingSize === 2">
+          {{widget.headingText}}
+        </h1>
+        <h1 *ngIf="widget.headingSize === 3">
+          {{widget.headingText}}
+        </h1>
+        <h1 *ngIf="widget.headingSize === 4">
+          {{widget.headingText}}
+        </h1>
+        <h1 *ngIf="widget.headingSize === 5">
+          {{widget.headingText}}
+        </h1>
+        <h1 *ngIf="widget.headingSize === 6">
+          {{widget.headingText}}
+        </h1>
+      </div>
+      <div *ngIf="widget.widgetName === 'Image'">
+        <img src={{widget.imageUrl}} alt="image">
+      </div>
+      <div *ngIf="widget.widgetName === 'Link'">
+        <a href={{widget.linkUrl}}>
+          {{widget.linkText}}
+        </a>
+      </div>
+      <div *ngIf="widget.widgetName === 'List'">
+        <div *ngIf="widget.listType == 1">
+          <ul>
+            <li *ngFor="let str of widget.listText.split('\n')">
+              {{str}}
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="widget.listType == 2">
+          <ol>
+            <li *ngFor="let str of widget.listText.split('\n')">
+              {{str}}
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div *ngIf="widget.widgetName === 'Paragraph'">
+        <p>{{widget.paragraphText}}</p>
+      </div>
+    </li>
+  </ul>
 </div>
