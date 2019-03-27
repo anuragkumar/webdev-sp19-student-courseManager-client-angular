@@ -11,6 +11,7 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {routing} from './app.routing';
 import {ModuleServiceClient} from './services/module.service.client';
+import {LessonServiceClient} from './services/lesson.service.client';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {ModuleServiceClient} from './services/module.service.client';
   ],
   providers: [
     CourseServiceClient,
-    ModuleServiceClient
+    ModuleServiceClient,
+    LessonServiceClient
   ],
   bootstrap: [AppComponent]
 })

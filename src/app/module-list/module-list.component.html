@@ -3,7 +3,9 @@
   <li *ngFor="let module of modules"
       [class.selected]="module === selectedModule"
       (click)="onSelect(module)">
+    <a [routerLink]="['/course/', courseId, 'module', module.id, 'lesson']">
       <span class="badge">{{module.id}}</span> {{module.moduleName}}
+    </a>
   </li>
 </ul>
 

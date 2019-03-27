@@ -10,7 +10,7 @@ export class CourseServiceClient {
   }
 
   findCourseById = (id) => {
-    const USER_API_URL = this.API_URL + '/api/users/' + id;
+    const USER_API_URL = this.API_URL + '/api/courses/' + id;
     return fetch(USER_API_URL, {
       headers : {
         'Content-Type' : 'application/json'

@@ -16,7 +16,7 @@ export class ModuleListComponent implements OnInit {
   constructor(private moduleService: ModuleServiceClient, private route: ActivatedRoute) {
     this.route.params.subscribe( params => {
       console.log(params);
-      this.courseId = params.id;
+      this.courseId = params.cid;
     } );
   }
 
