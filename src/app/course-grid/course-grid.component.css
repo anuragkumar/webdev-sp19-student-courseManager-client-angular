@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+}
+
+.card {
+  width: 18em;
+  max-width: 18em;
+}
+
+.card-deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  cursor: pointer;
+  text-align: center;
+}
