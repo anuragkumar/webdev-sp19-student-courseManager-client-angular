@@ -1,0 +1,13 @@
+.wbdv-lessons:hover {
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+.wbdv-modules:hover {
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+.wbdv-topics:hover {
+  cursor: pointer;
+}

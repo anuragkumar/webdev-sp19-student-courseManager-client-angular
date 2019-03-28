@@ -7,4 +7,12 @@ export class ModuleServiceClient {
     return fetch(this.API_URL + '/api/courses/' + cid + '/modules')
       .then(response => response.json());
   }
+  findModulesForCourse = (cid) => {
+    return fetch(this.API_URL + '/api/courses/' + cid + '/allModules')
+      .then(response => response.json());
+  }
+  findModuleById = (cid, moduleId) => {
+    return fetch(this.API_URL + '/api/courses/' + cid + '/modules/' + moduleId)
+      .then(response => response.json());
+  }
 }

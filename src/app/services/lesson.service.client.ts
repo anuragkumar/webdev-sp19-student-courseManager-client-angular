@@ -7,4 +7,12 @@ export class LessonServiceClient {
     return fetch(this.API_URL + '/api/courses/' + cid + '/modules/' + mid + '/lessons')
       .then(response => response.json());
   }
+  findLessonById = (cid, mid, lid) => {
+    return fetch(this.API_URL + '/api/courses/' + cid + '/modules/' + mid + '/lessons/' + lid)
+      .then(response => response.json());
+  }
+  findLessonsForModule = (cid, mid) => {
+    return fetch(this.API_URL + '/api/courses/' + cid + '/modules/' + mid + '/allLessons')
+      .then(response => response.json());
+  }
 }

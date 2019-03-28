@@ -8,6 +8,8 @@ import {LessonServiceClient} from '../services/lesson.service.client';
 import {TopicServiceClient} from '../services/topic.service.client';
 import {Widget} from '../models/widgets.model.client';
 import {WidgetServiceClient} from '../services/widget.service.client';
+import {CourseServiceClient} from '../services/course.service.client';
+import {Course} from '../models/course.model.client';
 
 @Component({
   selector: 'app-module-list',
@@ -16,6 +18,7 @@ import {WidgetServiceClient} from '../services/widget.service.client';
 })
 export class ModuleListComponent implements OnInit {
   courseId: number;
+  course: Course;
   modules: Module[] = [];
   selectedModule: Module;
   lessons: Lesson[] = [];
@@ -24,7 +27,8 @@ export class ModuleListComponent implements OnInit {
   selectedTopic: Topic;
   widgets: Widget[] = [];
 
-  constructor(private moduleService: ModuleServiceClient,
+  constructor(private courseService: CourseServiceClient,
+              private moduleService: ModuleServiceClient,
               private lessonService: LessonServiceClient,
               private topicService: TopicServiceClient,
               private widgetService: WidgetServiceClient,
@@ -40,6 +44,10 @@ export class ModuleListComponent implements OnInit {
       .then(data => {
         this.modules = data;
         console.log(this.modules);
+      });
+    this.courseService.findCourseById(this.courseId)
+      .then(data => {
+        this.course = data;
       });
   }
   onSelectModule(module: Module): void {
